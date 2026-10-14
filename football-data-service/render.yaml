@@ -1,0 +1,23 @@
+# Render Blueprint — one-click deploy of the Football Data Service.
+# In Render: New +  ->  Blueprint  ->  point at this repo.
+# Then set the secret keys (FOOTBALL_DATA_API_KEY / API_FOOTBALL_KEY) in the dashboard.
+services:
+  - type: web
+    name: football-data-service
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: "echo 'no build step needed'"
+    startCommand: "node server.js"
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: ALLOW_MOCK_FALLBACK
+        value: "true"
+      # Set these two in the Render dashboard (Environment tab). Leave blank to run on mock data.
+      - key: FOOTBALL_DATA_API_KEY
+        sync: false
+      - key: API_FOOTBALL_KEY
+        sync: false

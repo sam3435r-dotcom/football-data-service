@@ -1,0 +1,17 @@
+{
+  "name": "football-data-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Small self-hosted football data service: live scores, standings, top scorers, club & player lookup, exposed as a normalized REST API plus a tiny website.",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node --check server.js && node --check src/core.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {}
+}

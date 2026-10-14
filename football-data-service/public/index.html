@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Football Data Service — Live Scores, Tables & Player Stats</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <span class="logo">⚽</span>
+      <div>
+        <h1>Football Data Service</h1>
+        <p class="tag">Live scores · club tables · player stats — one clean JSON API</p>
+      </div>
+    </div>
+    <div class="status" id="status">Loading…</div>
+  </div>
+</header>
+
+<nav class="tabs wrap" id="tabs">
+  <button class="tab active" data-resource="livescores">Live Scores</button>
+  <button class="tab" data-resource="standings">Standings</button>
+  <button class="tab" data-resource="scorers">Top Scorers</button>
+  <button class="tab" data-resource="player">Player</button>
+  <button class="tab" data-resource="club">Club</button>
+</nav>
+
+<main class="wrap">
+  <section class="controls">
+    <label class="field" id="competitionField">
+      <span>Competition</span>
+      <select id="competition"></select>
+    </label>
+    <label class="field" id="queryField" hidden>
+      <span id="queryLabel">Search</span>
+      <input id="query" type="search" placeholder="e.g. Salah" autocomplete="off">
+    </label>
+    <button id="refresh" class="btn">↻ Refresh</button>
+  </section>
+
+  <section class="meta" id="meta"></section>
+  <section id="results" class="results" aria-live="polite"></section>
+
+  <section class="endpoint">
+    <h2>Use it in your app</h2>
+    <p>This page is just a demo of the API. Call the same endpoint from your app:</p>
+    <pre id="endpointUrl">…</pre>
+    <button id="copyEndpoint" class="btn small">Copy URL</button>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <p>Data comes from public football data providers. Free tiers are cached to respect their limits. When no key is configured, clearly-labelled mock data is shown.</p>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
